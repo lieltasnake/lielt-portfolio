@@ -1,0 +1,30 @@
+:root {
+  --bg: #07111f;
+  --surface: #0c1929;
+  --surface-raised: #10243a;
+  --border: rgba(139, 177, 212, .2);
+  --text: #e8f0f7;
+  --muted: #a4b4c4;
+  --accent: #4f9fe8;
+  --accent-bright: #86c4ff;
+  --accent-soft: rgba(77, 163, 255, 0.14);
+  --success: #62d6a7;
+  --sans: 'Avenir Next', 'Trebuchet MS', sans-serif;
+  font-family: var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: radial-gradient(circle at 88% 4%, rgba(42, 91, 138, .16), transparent 28rem), var(--bg); }
+button, a { font: inherit; }
+a { color: inherit; }
+
+::selection { color: var(--bg); background: var(--accent-bright); }
+
+#root { min-height: 100svh; }
