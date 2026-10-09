@@ -35,18 +35,44 @@ export const projects = [
     slug: 'dr-ai',
     number: '01',
     title: 'Dr. AI',
-    subtitle: 'Voice-Enabled AI Health Recommendation Mobile Application',
+    subtitle: 'AI-Powered Medical Information and Support for Android',
     label: 'Featured project',
     overview:
-      'Dr. AI is a final-year university project developed as a team. The application provides basic symptom-based health guidance and encourages users to seek professional medical care when symptoms may be serious.',
-    role: 'Team Leader',
+      'Doctor AI is an AI-powered mobile application that offers accessible, conversational health information. It combines a React Native app with a Node.js API and a Python AI service connected to Groq.',
+    androidDownloadUrl: 'https://expo.dev/accounts/lielt/projects/doctor-ai/builds/06773c52-5552-43d2-b2bd-36233818f959',
+    problem:
+      'People often need an accessible starting point for general health questions. Doctor AI provides informational support across common health topics and helps surface situations that may need urgent professional attention.',
+    role: 'Team Leader & Full-Stack Developer',
     roleDescription:
-      'I contributed to both frontend and backend development while coordinating the team, supporting technical decisions, and helping with project delivery.',
+      'I served as Team Leader and contributed to frontend and backend development, with a primary focus on designing and integrating the Python Flask AI service, its Groq-powered response flow, and its communication with the Node.js backend and PostgreSQL database.',
     description:
-      'A final-year university project developed as a team. I served as Team Leader and contributed to both frontend and backend development. The application provides basic symptom-based guidance and encourages professional medical care for serious symptoms.',
-    highlights: ['Team Leader responsible for coordinating the final-year project', 'Frontend and backend contributions across the mobile application and supporting services'],
-    technologies: ['React Native', 'Expo', 'Node.js', 'Python', 'PostgreSQL', 'Speech-to-Text', 'Text-to-Speech', 'AI Integration'],
-    features: ['Basic symptom-based health guidance', 'Voice interaction using Speech-to-Text and Text-to-Speech', 'Encouragement to seek professional care for serious symptoms'],
+      'A team-built mobile health information project. I focused on the AI service and backend integration, including conversational assistance, safety handling, and deploying the services that power the Android app.',
+    highlights: [
+      'Designed and integrated the Python Flask AI service with the Groq API and developed prompts and a structured medical-information response flow',
+      'Implemented symptom analysis, emergency detection and safety handling, plus focused support flows for mental health, diabetes, and pregnancy-related questions',
+      'Connected the AI service to the Node.js / Express backend and PostgreSQL through REST APIs; supported JWT authentication and conversation history integration',
+      'Integrated multilingual interactions and speech-to-text using Groq Whisper',
+      'Deployed the AI service and backend on Render, tested Android API communication, and built and distributed the APK using Expo EAS',
+      'Debugged API communication across the mobile app, backend, and AI service',
+    ],
+    technologies: ['React Native', 'Expo', 'Node.js', 'Express', 'Python', 'Flask', 'Groq API', 'Groq Whisper', 'PostgreSQL', 'JWT', 'AsyncStorage', 'REST APIs', 'Render', 'Expo EAS'],
+    features: [
+      'Conversational medical information and symptom analysis',
+      'Mental health, diabetes-related, and pregnancy-related assistance',
+      'Emergency detection with safety-oriented responses',
+      'Conversation history and multiple-language support',
+      'Speech-to-text input powered by Groq Whisper',
+    ],
+    architecture: [
+      'React Native with Expo provides the Android client; AsyncStorage supports on-device storage.',
+      'The mobile app communicates with the Node.js / Express REST API, which handles JWT authentication and PostgreSQL data such as conversation history.',
+      'The backend connects to a Python / Flask AI service for prompt-driven assistance and safety handling; the AI service integrates with the Groq API, including Groq Whisper for speech-to-text.',
+    ],
+    deployment: 'The Node.js backend and Python AI service are deployed on Render. Android builds are produced and distributed with Expo EAS.',
+    disclaimer: 'Doctor AI is an educational and informational project, not a medical device or substitute for professional medical advice, diagnosis, or treatment. Users should consult a qualified healthcare professional about medical concerns and seek emergency care when needed.',
+    resources: [
+      { label: 'GitHub repository', url: '', pending: 'Project link to be added' },
+    ],
     screenshots: [
       {
         src: drAiLoginScreenshot,
@@ -66,7 +92,7 @@ export const projects = [
     ],
     githubUrl: '',
     liveUrl: '',
-    lessons: 'I learned how to balance technical decisions, collaboration, and delivery while contributing across frontend and backend development.',
+    lessons: 'The project strengthened my experience integrating AI services with mobile and backend systems, testing distributed API flows, and preparing Android releases.',
   },
   {
     slug: 'todo-list',

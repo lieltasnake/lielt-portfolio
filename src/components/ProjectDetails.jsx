@@ -1,4 +1,8 @@
+import { getValidExternalUrl } from '../utils/externalUrl'
+
 function ProjectDetails({ project, onBack }) {
+  const androidDownloadUrl = project.slug === 'dr-ai' ? getValidExternalUrl(project.androidDownloadUrl) : ''
+
   return (
     <main className="project-details-page">
       <div className="project-details-topline">
@@ -17,6 +21,21 @@ function ProjectDetails({ project, onBack }) {
           <p className="details-label">Overview</p>
           <p>{project.overview}</p>
         </section>
+
+        {project.slug === 'dr-ai' && (
+          <section className="project-details-card app-download-section">
+            <h2>Try the Mobile App</h2>
+            <p>Dr. AI is an Android application. Installation on an Android device may be required.</p>
+            {androidDownloadUrl && <a className="button button-primary" href={androidDownloadUrl} target="_blank" rel="noopener noreferrer">Download Android App</a>}
+          </section>
+        )}
+
+        {project.problem && (
+          <section className="project-details-card">
+            <p className="details-label">Problem</p>
+            <p>{project.problem}</p>
+          </section>
+        )}
 
         {project.role && (
           <section className="project-details-card">
@@ -40,6 +59,46 @@ function ProjectDetails({ project, onBack }) {
             <p className="details-label">Main features</p>
             <ul className="details-list">
               {project.features.map((feature) => <li key={feature}>{feature}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {project.architecture?.length > 0 && (
+          <section className="project-details-card">
+            <p className="details-label">System architecture</p>
+            <ul className="details-list">
+              {project.architecture.map((layer) => <li key={layer}>{layer}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {project.deployment && (
+          <section className="project-details-card">
+            <p className="details-label">Deployment</p>
+            <p>{project.deployment}</p>
+          </section>
+        )}
+
+        {project.disclaimer && (
+          <section className="project-details-card">
+            <p className="details-label">Medical disclaimer</p>
+            <p>{project.disclaimer}</p>
+          </section>
+        )}
+
+        {project.resources?.length > 0 && (
+          <section className="project-details-card">
+            <p className="details-label">Project links</p>
+            <ul className="details-list">
+              {project.resources.map((resource) => (
+                <li key={resource.label}>
+                  {resource.url ? (
+                    <a href={resource.url} target="_blank" rel="noopener noreferrer">{resource.label}</a>
+                  ) : (
+                    <span>{resource.label}: {resource.pending}</span>
+                  )}
+                </li>
+              ))}
             </ul>
           </section>
         )}

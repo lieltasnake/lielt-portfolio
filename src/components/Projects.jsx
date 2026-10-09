@@ -1,13 +1,16 @@
 import SectionHeading from './SectionHeading'
 import { projects } from '../data/portfolioData'
+import { getValidExternalUrl } from '../utils/externalUrl'
 
 function Projects({ onOpenProject }) {
   return (
     <section className="section projects-section" id="projects" aria-labelledby="projects-title">
       <SectionHeading id="projects-title" eyebrow="03 / Projects" title="Selected work." />
       <div className="projects-list">
-        {projects.map((project, index) => (
-          <article className={`project-card ${index === 0 ? 'project-featured' : 'project-secondary'}`} key={project.title}>
+        {projects.map((project, index) => {
+          const androidDownloadUrl = project.slug === 'dr-ai' ? getValidExternalUrl(project.androidDownloadUrl) : ''
+
+          return <article className={`project-card ${index === 0 ? 'project-featured' : 'project-secondary'}`} key={project.title}>
             <div className="project-card-header">
               <span className="project-number">{project.number}</span>
               <span className="project-label">{project.label}</span>
@@ -23,13 +26,16 @@ function Projects({ onOpenProject }) {
                 {project.technologies.length > 0 && <ul className="tag-list" aria-label={`${project.title} technologies`}>
                   {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
                 </ul>}
-                <a className="project-details-link" href={`/projects/${project.slug}`} onClick={(event) => onOpenProject(event, project.slug)}>
-                  View Details <span aria-hidden="true">→</span>
-                </a>
+                <div className="project-card-actions">
+                  {androidDownloadUrl && <a className="button button-primary" href={androidDownloadUrl} target="_blank" rel="noopener noreferrer">Download Android App</a>}
+                  <a className="button button-outline" href={`/projects/${project.slug}`} onClick={(event) => onOpenProject(event, project.slug)}>
+                    {project.slug === 'dr-ai' ? 'View Project Details' : 'View Details'}
+                  </a>
+                </div>
               </div>
             </div>
           </article>
-        ))}
+        })}
       </div>
     </section>
   )
